@@ -1,0 +1,142 @@
+---
+title: "Эконометрика, Осень 2021"
+subtitle: "Неделя 2.</br>(4) Модель регрессии: парная регрессия"
+author: "Владимир Пырлик"
+date: "Сентябрь 2021"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    lib_dir: libs
+    css: [libs/main.css, libs/fonts.css, libs/animate.css]
+    chakra: libs/remark-latest.min.js
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+      highlightLines: true
+      ratio: "8:5"
+
+---
+class: animated, fadeIn
+## Модель парной линейной регрессии
+
+$$y_i=\beta_o+\beta_1x_i+u_i,$$
+
+--
+
+</br>
+
+$$\mathbb{E}[u_i|x_i]=0,$$
+$$\mathbb{E}[u_i^2|x_i=x]=\sigma^2(x)<\infty,\;\forall x.$$
+--
+
+</br>
+
+$$\text{Var}\:x_i=\sigma_x^2\neq0.$$
+
+--
+
+</br>
+
+$$\{(y_i,x_i,u_i)\}_{i=1,...n}\sim\text{i.i.d.}$$
+
+---
+class: animated, fadeIn
+## Популяционная задача оптимальной регрессии (I)
+
+</br>
+
+\begin{equation}
+  \beta_o+\beta_1x = \arg\min_{g(x)}\mathbb{E}[(y_i-g(x))^2|x_i=x]
+\end{equation}
+
+</br>
+
+--
+
+.center[**vs**]
+
+</br>
+
+\begin{equation}
+  (\beta_o,\;\beta_1)' = \arg\min_{\color{red}{(b_o,b_1)'}}\mathbb{E}[(y_i-\color{red}{(b_o+b_1x)})^2|x_i=x]
+\end{equation}
+
+---
+class: animated, fadeIn
+## Популяционная задача оптимальной регрессии (II)
+
+</br>
+
+\begin{equation}
+  (\beta_o,\;\beta_1)' = \arg\min_{\color{red}{(b_o,b_1)'}}\mathbb{E}[(y_i-\color{red}{(b_o+b_1x)})^2|x_i=x]
+\end{equation}
+
+\begin{align}
+  \beta_o &= \mathbb{E}y_i-\frac{\text{Cov}(y_i,x_i)}{\text{Var}\:x_i}\cdot\mathbb{E}x_i\\
+  \beta_1 &= \frac{\text{Cov}(y_i,x_i)}{\text{Var}\:x_i}
+\end{align}
+
+---
+class: animated, fadeIn
+## Выборочный аналог регрессионнай задачи и оценки МНК
+
+</br>
+
+\begin{equation}
+  (\hat\beta_o,\;\hat\beta_1)' = \arg\min_{\color{red}{(b_o,b_1)'}}\frac{1}{n}\sum_{i=1}^n(y_i-\color{red}{(b_o+b_1x)})^2
+\end{equation}
+
+--
+
+\begin{align}
+  \beta_o &= \frac{1}{n}\sum_{i=1}^ny_i -\hat\beta_1\cdot\frac{1}{n}\sum_{i=1}^n x_i\\
+  \beta_1 &= \frac{\frac{1}{n}\sum_{i=1}^n\left(y_i-\frac{1}{n}\sum_{i=1}^ny_i\right)\left(x_i-\frac{1}{n}\sum_{i=1}^nx_i\right)}{\frac{1}{n}\sum_{i=1}^n\left(x_i-\frac{1}{n}\sum_{i=1}^nx_i\right)^2}
+\end{align}
+
+
+---
+class: animated, fadeIn
+.gb[Пример 2.10] Парная модель с бинарным регрессором
+
+Рассмотрим модель парной линейной регрессии
+
+$$y_i=\beta_o+\beta_1x_i+u_i,\;\;\mathbb{E}[u_i|x_i]=0,\;\;\color{blue}{...}$$
+--
+
+При этом $x_i$ принимает только значения $0$ или $1$.
+.right[.rmk[.bb[?] Подумайте над примерами содержательных контекстов]]
+
+--
+
+- Опишите популяционные характеристики регрессии
+
+- Запишите их выборочные аналоги
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+

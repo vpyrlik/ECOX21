@@ -1,0 +1,131 @@
+---
+title: "Эконометрика, Осень 2021"
+subtitle: "Неделя 2.</br>(3) Модель регрессии: техничекое введение"
+author: "Владимир Пырлик"
+date: "Сентябрь 2021"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    lib_dir: libs
+    css: [libs/main.css, libs/fonts.css, libs/animate.css]
+    chakra: libs/remark-latest.min.js
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+      highlightLines: true
+      ratio: "8:5"
+
+---
+class: animated, fadeIn
+## Регрессия, как условное матожидание
+
+$y$ - зависимая переменная,
+
+$x$ - объясняющие переменные, 
+
+--
+
+**Вопрос регрессии**: каково условное математическое ожидание
+
+$$\mathbb{E}[y|x]$$
+--
+
+$m(x)=\mathbb{E}[y|x]$ - регрессионная функция,
+
+--
+
+$u=y-m(x)$ - ошибка регрессии.
+
+---
+class: animated, fadeIn
+## Традиционная запись модели
+
+$$y=m(x)+u,$$
+
+--
+
+$$\mathbb{E}[u|x]=0,$$
+--
+
+$$\mathbb{E}[u^2|x]=\sigma^2(x)<\infty,\;\forall x.$$
+--
+
+</br>
+
+$$\Rightarrow \;\; \mathbb{E}[y|x]=...=m(x).$$
+---
+class: animated, fadeIn
+## Почему условное матожидание?
+
+Допустим, нам известно значение $x$. Что мы можем сказать о значении $y$?
+
+--
+
+$$y\;\;\;\text{vs}\;\;\;g(x)$$
+
+--
+
+Что взять в качестве $g(x)$, как приемлего описания $y|x$?
+
+--
+
+\begin{equation}
+  \min_{g(x)}\mathbb{E}[(y-g(x))^2|x]
+\end{equation}
+
+---
+class: animated, fadeIn
+## Почему условное матожидание?
+
+Допустим, нам известно значение $x$. Что мы можем сказать о значении $y$?
+
+$$y\;\;\;\text{vs}\;\;\;g(x)$$
+
+Что взять в качестве $g(x)$, как приемлего описания $y|x$?
+
+\begin{equation}
+  \color{red}{m(x) = }\arg\min_{g(x)}\mathbb{E}[(y-g(x))^2|x]\tag{2.3}
+\end{equation}
+
+--
+
+.rmk[.rb[NB!] Оптимальность в другом смысле приведет к другим решениям и другим концепциям регрессии!]
+
+---
+class: animated, fadeIn
+## Снова регрессия на константу
+
+$$x_i=\mu+u_i,\;\;\mathbb{E}u_i=0,\;\;(x_i,u_i)\sim\text{i.i.d.}, \;\;...$$
+--
+
+В виде регрессии:
+
+$$\mathbb{E}x_i=\mu,\;\;u_i=x_i-\mu,\;\;...$$
+--
+
+$$\mu=\arg\min_{m}\mathbb{E}(x_i-m)^2$$
+
+--
+
+.bb[?] Какой выборочный аналог этого свойства?
+
+--
+
+$$\hat\mu=\arg\min_m\frac{1}{n}\sum_{i=1}^n(x_i-m)^2$$
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+

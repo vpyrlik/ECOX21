@@ -1,0 +1,148 @@
+---
+title: "Эконометрика, Осень 2021"
+subtitle: "Неделя 2.</br>(2) Модели и параметрический подход"
+author: "Владимир Пырлик"
+date: "Сентябрь 2021"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    lib_dir: libs
+    css: [libs/main.css, libs/fonts.css, libs/animate.css]
+    chakra: libs/remark-latest.min.js
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+      highlightLines: true
+      ratio: "8:5"
+
+---
+class: section, animated, zoomIn
+# Модель
+## Что это такое?
+
+
+---
+class: animated, fadeIn
+## Подходы к моделированию в эконометрике
+
+![](stuff/self02-2-fig1.png)
+
+---
+class: animated, fadeIn
+## Иерархия моделей
+![](stuff/self02-2-fig2.png)
+
+---
+class: animated, fadeIn
+.gb[Пример 2.9] **"Регрессия на константу"**
+
+--
+
+Рассмотрим модель простого измерения со случайной ошибкой
+
+\begin{equation}
+  x=\mu+u,\tag{2.1}
+\end{equation}
+
+--
+
+где $x$ - результат измерения,
+
+--
+
+$\mu$ - значение измеряемой характеристики,
+
+--
+
+$u$ - ненаблюдаемая случайная ошибка измерения, при этом
+
+--
+
+\begin{equation}
+  \mathbb{E}u=0,\;\mathbb{E}u^2<\infty,\tag{2.2}
+\end{equation}
+
+--
+
+и мы располагаем случайной выборкой $\{x_i\}_{i=1,...n}.$
+
+---
+class: animated, fadeIn
+.gb[Пример 2.9] **"Регрессия на константу"**
+
+Альтернативная запись:
+
+\begin{equation}
+  x_i=\mu+u_i,\;\mathbb{E}u_i=0,\mathbb{E}u_i^2<\infty,\;\{(x_i,u_i)\}_{i=1,...n}\sim\text{i.i.d.}
+\end{equation}
+
+</br>
+
+--
+
+.bb[?] В чем разница?
+
+--
+
+</br>
+
+\begin{equation}
+  x=\mu+u,\;\mathbb{E}u=0,\mathbb{E}u^2<\infty,\;\{x_i\}_{i=1,...n}\sim\text{i.i.d.}
+\end{equation}
+
+
+---
+class: animated, fadeIn
+.gb[Пример 2.9] **"Регрессия на константу"**
+
+Популяционные свойства и их выборочные аналоги:
+
+--
+
+$$\mathbb{E}x_i=\mathbb{E}(\mu+u_i)=\mathbb{E}\mu+\mathbb{E}u_i=\mu$$
+
+--
+
+$$\frac{1}{n}\sum_{i=1}^n x_i=\hat\mu$$
+
+
+--
+
+По ЗБЧ: .rmk[.left[.rb[NB!] благодаря i.i.d. ]]
+
+\begin{equation}
+  \hat\mu\xrightarrow[n\to\infty]{p}\mathbb{E}x_i=\mu
+\end{equation}
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
