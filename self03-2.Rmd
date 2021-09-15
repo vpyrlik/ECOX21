@@ -1,0 +1,84 @@
+---
+title: "Эконометрика, Осень 2021"
+subtitle: "Неделя 3.</br>(2) Свойства оценок МНК: состоятельность (I)"
+author: "Владимир Пырлик"
+date: "Сентябрь 2021"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    lib_dir: libs
+    css: [libs/main.css, libs/fonts.css, libs/animate.css]
+    chakra: libs/remark-latest.min.js
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+      highlightLines: true
+      ratio: "8:5"
+---
+class: animated, fadeIn
+.gb[Пример 3.1] $x_i=\mu+u_i,\;\mathbb{E}u_i=0,\;\{u_i\}_{i=1,...n}\sim\text{i.i.d.},\;\color{blue}{...}$ .right[.rmk[снова регрессия на константу]]
+
+</br>
+
+--
+
+.pull-left[.center[Популяционное свойство] $$\mathbb{E}x_i=\mu$$ </br>]
+
+.pull-right[.center[Выборочный аналог] $$\frac{1}{n}\sum_{i=1}^nx_i=\hat\mu$$</br>]
+
+
+--
+
+$$\{x_i\}_{i=1,...n}\sim\text{i.i.d.},\;\text{ЗБЧ}\;\;\Rightarrow\;\;\hat\mu\xrightarrow[n\to\infty]{p}\mathbb{E}x_i=...=\mu.$$
+--
+
+.left[.rmk[.bb[?] Чем нам это полезно?]]
+
+---
+class: animated, fadeIn
+## Оценки МНК параметров парной линейной регрессии
+
+$$y_i=\beta_o+\beta_1x_i+u_i,\;\;\;\mathbb{E}[u_i|x_i]=0,\;\;\;\color{blue}{...}$$
+</br>
+
+\begin{align}
+  \hat\beta_o &= \frac{1}{n}\sum_{i=1}^ny_i -\hat\beta_1\cdot\frac{1}{n}\sum_{i=1}^n x_i\\\\
+  \hat\beta_1 &= \frac{\frac{1}{n}\sum_{i=1}^n\left(y_i-\frac{1}{n}\sum_{i=1}^ny_i\right)\left(x_i-\frac{1}{n}\sum_{i=1}^nx_i\right)}{\frac{1}{n}\sum_{i=1}^n\left(x_i-\frac{1}{n}\sum_{i=1}^nx_i\right)^2}
+\end{align}
+
+---
+class: animated, fadeIn
+## Оценки МНК параметров парной линейной регрессии
+
+$$y_i=\beta_o+\beta_1x_i+u_i,\;\;\;\mathbb{E}[u_i|x_i]=0,\;\;\;\color{blue}{...}$$
+</br>
+
+\begin{align}
+  \hat\beta_o &= \bar y -\hat\beta_1\cdot\bar x \;\; \color{red}{\xrightarrow[n\to\infty]{p}\beta_o}\\\\
+  \hat\beta_1 &= \frac{\frac{1}{n}\sum_{i=1}^n\left(y_i-\bar y\right)\left(x_i-\bar x\right)}{\frac{1}{n}\sum_{i=1}^n\left(x_i-\bar x\right)^2} \;\; \color{red}{\xrightarrow[n\to\infty]{p}\beta_1}
+\end{align}
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+

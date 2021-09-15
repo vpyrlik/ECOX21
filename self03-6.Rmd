@@ -1,0 +1,112 @@
+---
+title: "Эконометрика, Осень 2021"
+subtitle: "Неделя 3.</br>(6) Аси. дисперсия **vs** стандартные ошибки"
+author: "Владимир Пырлик"
+date: "Сентябрь 2021"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    lib_dir: libs
+    css: [libs/main.css, libs/fonts.css, libs/animate.css]
+    chakra: libs/remark-latest.min.js
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+      highlightLines: true
+      ratio: "8:5"
+
+---
+class: animated, fadeIn
+.gb[Пример 3.1 (продолжение)]
+
+$$x_i=\mu+u_i,\;\mathbb{E}u_i=0,\;\{u_i\}_{i=1,...n}\sim\text{i.i.d.},\;\color{blue}{...}$$ 
+$$\hat\mu = \frac{1}{n}\sum_{i=1}^nx_i$$
+
+$$\sqrt{n}(\hat\mu - \mu) \xrightarrow[n\to\infty]{d}\mathcal{N}(0;\;\text{Var}\:u_i)$$
+--
+
+$$\widehat{\text{Var}}\:u_i=\widehat{\sigma}_x^2$$
+
+--
+
+$$\sqrt{n}\frac{\hat\mu-\mu}{\hat\sigma_x} \xrightarrow[n\to\infty]{d}\mathcal{N}(0;\:1) $$
+---
+class: animated, fadeIn
+.gb[Пример 3.1 (продолжение)]
+
+$$x_i=\mu+u_i,\;\mathbb{E}u_i=0,\;\{u_i\}_{i=1,...n}\sim\text{i.i.d.},\;\color{blue}{...}$$ 
+$$\hat\mu = \frac{1}{n}\sum_{i=1}^nx_i$$
+
+$$\sqrt{n}(\hat\mu - \mu) \xrightarrow[n\to\infty]{d}\mathcal{N}(0;\;\text{Var}\:u_i)$$
+
+
+$$\widehat{\text{Var}}\:u_i=\widehat{\sigma}_x^2$$
+
+$$\frac{\hat\mu-\mu}{\hat\sigma_x\color{blue}{/\sqrt{n}}} \xrightarrow[n\to\infty]{d}\mathcal{N}(0;\:1)$$
+
+---
+class: animated, fadeIn
+.gb[Пример 3.1 (продолжение)]
+
+$$x_i=\mu+u_i,\;\mathbb{E}u_i=0,\;\{u_i\}_{i=1,...n}\sim\text{i.i.d.},\;\color{blue}{...}$$ 
+$$\hat\mu = \frac{1}{n}\sum_{i=1}^nx_i$$
+
+$$\sqrt{n}(\hat\mu - \mu) \xrightarrow[n\to\infty]{d}\mathcal{N}(0;\;\color{red}{\text{Var}\:u_i})$$
+
+
+$$\widehat{\text{Var}}\:u_i=\widehat{\sigma}_x^2$$
+
+$$\frac{\hat\mu-\mu}{\color{red}{\hat\sigma_x/\sqrt{n}}} \xrightarrow[n\to\infty]{d}\mathcal{N}(0;\:1)$$
+
+---
+class: animated, fadeIn
+## Асимптотическое распределение оценок МНК
+
+\begin{align}
+    \sqrt{n}(\hat\beta_o -\beta_o) & \xrightarrow[n\to\infty]{d}\mathcal{N}\left(0;\; \color{red}{\textbf{?}} \right) \\\\
+    \sqrt{n}(\hat\beta_1 -\beta_1) & \xrightarrow[n\to\infty]{d}\mathcal{N}\left(0;\; \frac{\mathbb{E}[x_i^2\sigma^2(x)]}{\sigma_x^4}\right)
+\end{align}
+
+--
+
+</br>
+
+$$\widehat{\text{Var}}\:\beta_1 = \frac{\frac{1}{n-2}\sum_{i=1}^n(x_i-\bar x)\hat u_i^2}{\frac{1}{n}\sum_{i=1}^n(x_i-\bar x)^2};\;\;\;\hat u_i=y_i-\hat\beta_o-\hat\beta_1x_i$$
+
+---
+class: animated, fadeIn
+## Асимптотическое распределение оценок МНК
+
+\begin{align}
+    \sqrt{n}(\hat\beta_o -\beta_o) & \xrightarrow[n\to\infty]{d}\mathcal{N}\left(0;\; \color{red}{\textbf{?}} \right) \\\\
+    \sqrt{n}(\hat\beta_1 -\beta_1) & \xrightarrow[n\to\infty]{d}\mathcal{N}\left(0;\; \frac{\mathbb{E}[x_i^2\sigma^2(x)]}{\sigma_x^4}\right)
+\end{align}
+
+</br>
+
+$$SE(\hat\beta_1) = \frac{\sqrt{\frac{1}{n-2}\sum_{i=1}^n(x_i-\bar x)\hat u_i^2}}{\sqrt{n}\:\widehat\sigma_x}$$
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
