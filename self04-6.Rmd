@@ -1,0 +1,122 @@
+---
+title: "Эконометрика, Осень 2021"
+subtitle: "Неделя 4. (6) **ММЛР:** оценивание МНК (II)"
+author: "Владимир Пырлик"
+date: "Сентябрь 2021"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    lib_dir: libs
+    css: [libs/main.css, libs/fonts.css, libs/animate.css]
+    chakra: libs/remark-latest.min.js
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+      highlightLines: true
+      ratio: "8:5"
+
+---
+class: animated, fadeIn
+## Популяционная задача ММЛР
+
+$$y_i=x_i'\beta+u_i,\;\mathbb{E}[u_i|x'_i=0],\;\text{rank}\:Q_{xx}=k+1,\;\color{blue}{...}$$
+
+ - это модель регрессии в среднем
+ 
+ - это линейная модель
+ 
+$$\beta=\arg\min_{b}\mathbb{E}(y_i-x_i'b)^2 \tag{4.2}$$
+
+### Как перейти к оценкам? 
+
+ 1) дать характеристику $\beta$, как решения $\text{(4.2)}$</br>и использовать метод аналогии
+
+ 2) применить метод аналогии к $\text{(4.2)}$, решить задачу
+
+---
+class: animated, fadeIn
+## Решение популяционной задачи ММЛР
+
+$$\beta=\arg\min_{b}\mathbb{E}(y_i-x_i'b)^2 \tag{4.2}$$
+
+
+$$\text{У.П.П.:}\;\frac{\partial\mathbb{E}(y_i-x_i'b)^2}{\partial b}\:\Big|_{b=\beta}\:=\:0$$
+
+### Оценка параметров ММЛР методом аналогии (МНК оценка)
+
+$$\hat\beta = (\hat Q_{xx})^{-1}\hat Q_{xy}$$
+---
+class: animated, fadeIn
+## Решение **выборочного аналога** задачи ММЛР
+
+$$\hat\beta=\arg\min_{b}\frac{1}{n}\sum_{i=1}^n(y_i-x_i'b)^2 \tag{4.2}$$
+--
+
+### Оценка МНК параметров ММЛР
+
+$$\hat\beta = (\hat Q_{xx})^{-1}\hat Q_{xy}$$
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
