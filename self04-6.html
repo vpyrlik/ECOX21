@@ -13,63 +13,81 @@
 class: center, middle, inverse, title-slide
 
 # Эконометрика, Осень 2021
-## Неделя 4. (6) <strong>ММЛР:</strong> оценивание МНК (II)
+## Неделя 4. (8) <strong>ММЛР:</strong> свойства оценок МНК (I)
 ### Владимир Пырлик
 ### Сентябрь 2021
 
 ---
 
 class: animated, fadeIn
-## Популяционная задача ММЛР
+## Параметры ММЛР: популяционная характеристика и оценки
 
-`$$y_i=x_i'\beta+u_i,\;\mathbb{E}[u_i|x'_i=0],\;\text{rank}\:Q_{xx}=k+1,\;\color{blue}{...}$$`
-
- - это модель регрессии в среднем
- 
- - это линейная модель
- 
-`$$\beta=\arg\min_{b}\mathbb{E}(y_i-x_i'b)^2 \tag{4.2}$$`
-
-### Как перейти к оценкам? 
-
- 1) дать характеристику `\(\beta\)`, как решения `\(\text{(4.2)}\)`&lt;/br&gt;и использовать метод аналогии
-
- 2) применить метод аналогии к `\(\text{(4.2)}\)`, решить задачу
-
+`$$y_i = x_i'\beta+u_i, \color{blue}{...}\;\;\color{white}{\text{или}\;\;Y=X\beta+U,\;...}$$`
 ---
 class: animated, fadeIn
-## Решение популяционной задачи ММЛР
+## Параметры ММЛР: популяционная характеристика и оценки
 
-`$$\beta=\arg\min_{b}\mathbb{E}(y_i-x_i'b)^2 \tag{4.2}$$`
+`$$y_i = x_i'\beta+u_i, \color{blue}{...}\;\;\text{или}\;\;Y=X\beta+U,\;\color{blue}{...}$$`
 
-
-`$$\text{У.П.П.:}\;\frac{\partial\mathbb{E}(y_i-x_i'b)^2}{\partial b}\:\Big|_{b=\beta}\:=\:0$$`
-
-### Оценка параметров ММЛР методом аналогии (МНК оценка)
-
-`$$\hat\beta = (\hat Q_{xx})^{-1}\hat Q_{xy}$$`
----
-class: animated, fadeIn
-## Решение **выборочного аналога** задачи ММЛР
-
-`$$\hat\beta=\arg\min_{b}\frac{1}{n}\sum_{i=1}^n(y_i-x_i'b)^2 \tag{4.2}$$`
 --
 
-### Оценка МНК параметров ММЛР
-
-`$$\hat\beta = (\hat Q_{xx})^{-1}\hat Q_{xy}$$`
-
----
-class: animated, fadeIn
-## 
+`\begin{align}
+  \beta     &amp;= Q_{xx}^{-1}Q_{xy}\color{white}{.................}
+\end{align}`
 
 ---
 class: animated, fadeIn
-## 
+## Параметры ММЛР: популяционная характеристика и оценки
+
+`$$y_i = x_i'\beta+u_i, \color{blue}{...}\;\;\text{или}\;\;Y=X\beta+U,\;\color{blue}{...}$$`
+
+`\begin{align}
+  \beta     &amp;= Q_{xx}^{-1}Q_{xy}\color{white}{.................}\\\\
+  \hat\beta &amp;= \hat Q_{xx}^{-1}\hat Q_{xy} = \\
+            &amp;= (X'X)^{-1}X'Y 
+\end{align}`
 
 ---
 class: animated, fadeIn
-## 
+## Параметры ММЛР: популяционная характеристика и оценки
+
+`$$y_i = x_i'\beta+u_i, \color{blue}{...}\;\;\text{или}\;\;Y=X\beta+U,\;\color{blue}{...}$$`
+
+
+
+`\begin{align}
+  \beta     &amp;= Q_{xx}^{-1}Q_{xy}\color{white}{.................}\\\\
+  \hat\beta &amp;= \hat Q_{xx}^{-1}\hat Q_{xy} = \\
+            &amp;= (X'X)^{-1}X'Y = \\\\
+            &amp;= \beta + \hat Q_{xx}^{-1} \hat Q_{xu} = \\
+            &amp;= \beta + (X'X)^{-1}X'U
+\end{align}`
+
+---
+class: animated, fadeIn
+## ММЛР: свойства оценок МНК
+
+ - состоятельность
+
+--
+
+ - несмещенность
+
+--
+
+ - асимптотическая нормальность
+
+---
+class: animated, fadeIn
+## Состоятельность оценок МНК ММЛР
+
+**Два способа показать**
+
+ - напрямую для выборочного аналога популяционной характеристики паарметров
+ 
+--
+
+ - для декомпозиции оценки .rb[ДЗ]
 
 ---
 class: animated, fadeIn
