@@ -1,0 +1,297 @@
+---
+title: "Эконометрика, Осень 2021"
+subtitle: "Неделя 6. (2) **ММЛР:** нелинейные эффекты (II)"
+author: "Владимир Пырлик"
+date: "Октябрь 2021"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    lib_dir: libs
+    css: [libs/main.css, libs/fonts.css, libs/animate.css]
+    chakra: libs/remark-latest.min.js
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+      highlightLines: true
+      ratio: "8:5"
+---
+class: animated, fadeIn
+## План
+
+ - предельные эффекты в базовой модели
+ 
+ - почему мы можем хотеть иметь в модели нелинейные эффекты
+ 
+ - основные виды нелинейных эффектов в ММЛР
+ 
+ - тесты, связанные с нелинейными эффектами
+
+
+---
+class: animated, fadeIn
+## План
+
+ - основные виды нелинейных эффектов в ММЛР
+
+---
+class: section, animated, fadeIn
+# log-формы
+</br>
+### log-log
+### log-лин
+### лин-log
+
+---
+class: middle, center, animated, zoomIn
+
+.rb[!] Переход в log-шкалы:</br> основной способ перейти к относительным эффектам
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.5] Рассмотрим *зависимость*
+
+$$\log(y) = ... + \beta x + ...$$
+--
+
+$$\beta\;=\;\frac{\partial \log(y)}{\partial x}\;=\;\frac{\partial y}{y\cdot\partial x}$$
+
+--
+
+$$\frac{\partial y}{y}\;-\;\text{малое относительное изменение }y$$
+
+--
+
+.center[
+
+*При изменении* $x$ *на единицу*</br> $y$ *меняется на* $100\times\beta\:\%$
+
+]
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.6] Рассмотрим *зависимость*
+
+$$y = ... + \beta \log(x) + ...$$
+$$\beta\;=\;\frac{\partial y}{\partial \log(x)}\;=\;\frac{x\cdot\partial y}{\partial x}=\partial y\big/\tfrac{\partial x}{x}$$
+
+$$\frac{\partial x}{x}\;-\;\text{малое относительное изменение }x$$
+
+--
+
+.center[
+
+*При изменении* $x$ *на 1%*</br> $y$ *меняется на* $\beta$ *единиц*
+
+]
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.7] Рассмотрим *зависимость*
+
+$$\log(y) = ... + \beta \log(x) + ...$$
+$$\beta\;=\;\frac{\partial \log(y)}{\partial \log(x)}\;=\;\frac{x\cdot\partial y}{y\cdot\partial x}=\tfrac{\partial y}{y}\big/\tfrac{\partial x}{x}$$
+
+.right[.bb[?] .rmk[Что это за характеристика?]]
+
+--
+
+.center[
+
+$\beta$ **показывает эластичность:** 
+
+*При изменении* $x$ *на 1%*</br> $y$ *меняется на* $100\times\beta\:\%$
+
+]
+
+---
+class: section, animated, fadeIn
+### Это все были детерминированные зависимости... 
+</br>
+# А как быть с коэффициентами ММЛР?
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.8] Рассмотрим **фрагмент ММЛР**
+
+$$\log(y_i)\;=\;...\;+\;\beta_jx_{ij}\;+\;...\;+u_i,\;\color{blue}{...}$$
+.right[.bb[?] .rmk[что здесь объект моделирования?]]
+
+--
+
+$$\beta_j\;=\;\frac{\mathbb{E}[\log(y_i)|x_{ij}=x,\color{red}{...}]}{\partial x}$$
+
+--
+
+.center[
+
+.rb[!] **На практике всё равно интерпретируют, что**
+
+$$\beta_j\;\approx\;\mathbb{E}\left[\frac{\partial y_i}{y_i\cdot\partial x}\Big|x_i=x\right]$$
+*При изменении* $x_j$ *на 1 единицу*</br>*ожидаемое изменение* $y$ *составляет* $100\times\beta_j\:\%$ 
+
+]
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.9] В модели ММЛР
+
+$$\log(sales_i)=...\beta\log(advert_i)+...+u_i,\;\color{blue}{...}$$
+мы получили оценку окэффициента
+
+$$\hat\beta=0.008\;(SE(\hat\beta)=0.00015)$$
+
+--
+
+.center[
+
+.bb[?] Как стоит интерпретировать оценку коэффициента $\beta$?
+
+]
+
+--
+
+.center[
+
+.bb[?] Фирма планирует увеличить расходы на рекламу на 1000USD, каких изменений продаж стоит ожидать?
+
+]
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.9] В модели ММЛР
+
+$$\log(sales_i)=...\beta\log(advert_i)+...+u_i,\;\color{blue}{...}$$
+мы получили оценку окэффициента
+
+$$\hat\beta=0.008\;(SE(\hat\beta)=0.00015)$$
+
+.center[
+
+.bb[?] Как стоит интерпретировать оценку коэффициента $\beta$?
+
+]
+
+.center[
+
+.bb[?] Фирма планирует увеличить расходы на рекламу на 2%,</br>каких изменений продаж стоит ожидать?
+
+]
+
+--
+
+.center[
+
+**Ответ:** на $2\times100\times\hat\beta\:\%=1.6\%$
+
+]
+
+---
+class: section, animated, zoomIn
+# Неоднородные по группам эффекты
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.10] Рассмотрим ММЛР
+
+$$log(w_i) = \beta_o+\beta_1a_i+\beta_2f_i+\color{red}{\beta_3\:a_i\cdot f_i} +\;...\;+u_i,\;\color{blue}{...}$$
+--
+
+.center[
+
+.bb[?] Каковы ожидаемые изменения зарплаты индивида</br>с увеличением возраста (при прочих равных)?
+
+]
+
+--
+
+$$\frac{\partial\mathbb{E}[\log(w_i)|a_i=a,...]}{\partial a}=\;...\neq\beta_1$$
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.10] Рассмотрим ММЛР
+
+$$log(w_i) = \beta_o+\beta_1a_i+\beta_2f_i+\color{red}{\beta_3\:a_i\cdot f_i} +\;...\;+u_i,\;\color{blue}{...}$$
+
+.center[
+
+.bb[?] Каковы ожидаемые изменения зарплаты индивида</br>с увеличением возраста (при прочих равных)?
+
+]
+
+\begin{align}
+  \frac{\partial\mathbb{E}[\log(w_i)|a_i=a,\color{red}{f_i=1},...]}{\partial a} &= \beta_1+\beta_3,\\\\
+    \frac{\partial\mathbb{E}[\log(w_i)|a_i=a,\color{red}{f_i=0},...]}{\partial a} &= \beta_1
+\end{align}
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.10] Рассмотрим ММЛР
+
+$$log(w_i) = \beta_o+\beta_1a_i+\beta_2f_i+\color{red}{\beta_3\:a_i\cdot f_i} +\;...\;+u_i,\;\color{blue}{...}$$
+
+.center[
+
+.bb[?] Каковы ожидаемые изменения зарплаты индивида</br>с увеличением возраста (при прочих равных)?
+
+]
+
+</br>
+
+.center[
+
+*С увеличение возраста на 1 год*</br>*зарплата женщины в среднем увеличивается на * $100\times(\beta_1+\beta_3)\:\%,$</br>*а не женщин - на* $100\times\beta_1\:\%$ 
+
+]
+
+---
+class: section, animated, zoomIn
+# Нелинейные
+
+### и даже немонотонные 
+
+# эффекты
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.11] Рассмотрим ММЛР
+
+$$gr_i=\beta_o+\beta_1cr_i+\color{red}{\beta_2cr_i^2}+...+u_i,\;\color{blue}{...}$$
+--
+
+.center[
+
+.bb[?] Как изменяется экономический рост</br>при изменении доступности кредита бизнесу?
+
+]
+
+--
+
+$$\frac{\partial\mathbb{E}[gr_i|cr_i=cr,...]}{\partial cr}=...\neq\beta_1$$
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.11] Рассмотрим ММЛР
+
+$$gr_i=\beta_o+\beta_1cr_i+\color{red}{\beta_2cr_i^2}+...+u_i,\;\color{blue}{...}$$
+
+.center[
+
+.bb[?] Как изменяется экономический рост</br>при изменении доступности кредита бизнесу?
+
+]
+
+$$\frac{\partial\mathbb{E}[gr_i|cr_i=cr,...]}{\partial cr}=\beta_1+2\beta_2cr$$
+
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+

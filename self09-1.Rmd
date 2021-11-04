@@ -1,0 +1,153 @@
+---
+title: "Эконометрика, Осень 2021"
+subtitle: "Неделя 9. (1)</br>План на ближайшие темы. Эндогенность."
+author: "Владимир Пырлик"
+date: "Ноябрь 2021"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    lib_dir: libs
+    css: [libs/main.css, libs/fonts.css, libs/animate.css]
+    chakra: libs/remark-latest.min.js
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+      highlightLines: true
+      ratio: "8:5"
+---
+class: animated, fadeIn
+## План
+
+ - Эндогенность
+ 
+ - Источники эндогенности
+ 
+ - Инструментальные переменные
+
+---
+class: animated, fadeIn
+## Обязательное чтение
+
+### Инструментальные переменные
+
+ - [SW] Глава 12 (вся)
+ 
+ - [HE] Глава 12 (выборочно, *особенно примеры*)
+
+--
+
+</br>
+
+### Эксперименты и квази-эксперименты
+
+ - [SW] Глава 13
+
+---
+class: section, animated, zoomIn
+
+# Эндогенность
+
+---
+class: animated, fadeIn
+# Эндогенность - это ...
+
+--
+
+</br>
+
+#*ситуация, когда в регрессионной модели</br>один из регрессоров коррелирован с ошибкой.*
+
+---
+class: animated, fadeIn
+# Эндогенность - это ...
+
+</br>
+
+#*ситуация, когда в "регрессионной модели"</br>один из регрессоров коррелирован с ошибкой.*
+
+---
+class: animated, fadeIn
+## Почему "регрессионная модель"? .right[.rmk[*а не регрессионная*]]
+
+$$y_i=x_i'\beta+u_i,\;\color{blue}{...},$$
+
+.center[но]
+
+$$\exists j\in\{1,2,...k\}:\;\text{не гарантировано }\mathbb{E}[u_i|x_{ji}]=0$$
+
+--
+
+Автоматически нарушается
+
+$$\mathbb{E}[u_i|x_i]=0,$$
+
+--
+
+Значит,
+
+$$x_i'\beta\;\color{red}{\neq}\;\mathbb{E}[y_i|x_i].$$
+---
+class: section, animated, zoomIn
+
+### Некоторые
+
+# источники эндогенности
+
+---
+class: animated, fadeIn
+## Источники эндогенности
+
+ - Пропущенные переменные
+
+--
+
+ - Одновременность
+
+--
+
+ - Ошибки измерения
+
+---
+class: animated, fadeIn
+## Инструментальные переменные .right[.rmk[*aka* инструменты]]
+
+ - регрессор связан с ошибкой и нет контрольных переменных
+ 
+--
+
+ - если можно найти переменные, которые
+ 
+  - коррелированны с проблемным регрессором
+  
+  - и не коррелированны с ошибкой
+
+--
+
+ - можно отделить часть вариации регрессора,</br>которая коррелирует с ошибкой
+ 
+ - и устранить (уменьшить) смещение
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+

@@ -1,0 +1,189 @@
+---
+title: "Эконометрика, Осень 2021"
+subtitle: "Неделя 6. (1) **ММЛР:** нелинейные эффекты (I)"
+author: "Владимир Пырлик"
+date: "Октябрь 2021"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    lib_dir: libs
+    css: [libs/main.css, libs/fonts.css, libs/animate.css]
+    chakra: libs/remark-latest.min.js
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+      highlightLines: true
+      ratio: "8:5"
+---
+class: animated, fadeIn
+## План
+
+ - предельные эффекты в базовой модели
+ 
+ - почему мы можем хотеть иметь в модели нелинейные эффекты
+ 
+ - основные виды нелинейных эффектов в ММЛР
+ 
+ - тесты, связанные с нелинейными эффектами
+
+
+---
+class: animated, fadeIn
+## План
+
+ - предельные эффекты в базовой модели
+ 
+ - почему мы можем хотеть иметь в модели нелинейные эффекты
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.1] Рассмотрим ММЛР
+
+$$wage_i = \beta_o+\beta_1female_i + \beta_2exper_i+...+u_i,\;\;\color{blue}{...}$$
+
+где
+
+\begin{align}
+  wage_i &\;-\; \text{зарплата индивида, руб.},\\
+  female_i &\;-\; =1\text{, если индивид - женщина, иначе }=0,\\
+  exper_i &\;-\; \text{общий стаж работы индивида, полных лет},\\
+  \text{и т.д.}&
+\end{align}
+
+--
+
+.center[.bb[?] Что показывают коэффициенты]
+
+$$\beta_1,\;\beta_2,\;...?$$
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.1] Рассмотрим ММЛР
+
+$$wage_i = \beta_o+\beta_1female_i + \beta_2exper_i+...+u_i,\;\;\color{blue}{...}$$
+
+</br>
+
+$\beta_1\;=\;\mathbb{E}[wage_i|female_i=1,\color{red}{...}]-\mathbb{E}[wage_i|female_i=0,\color{red}{...}]$
+
+--
+
+.rb[!] Но не $\mathbb{E}[wage_i|female_i=1]-\mathbb{E}[wage_i|female_i=0]$
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.1] Рассмотрим ММЛР
+
+$$wage_i = \beta_o+\beta_1female_i + \beta_2exper_i+...+u_i,\;\;\color{blue}{...}$$
+
+</br>
+
+$$\beta_2\;=\;\frac{\partial\:\mathbb{E}[wage_i|exper_i=exper,\color{red}{...}]}{\partial\:exper}$$
+
+---
+class: section, animated, fadeIn
+# Предельные эффекты в ММЛР
+
+---
+class: animated, fadeIn
+## Предельные эффекты в ММЛР
+
+$$y_i=x_i'\beta+u_i,\;\;\color{blue}{...}$$
+--
+
+.pull-left[
+
+$$\beta_j=\frac{\partial\mathbb{E}[y_i|x_{ij}=x,\color{red}{...}]}{\partial x}$$
+
+если $x_j$ "непрерывный"
+
+]
+--
+.pull-right[
+
+$$\beta_j=\mathbb{E}[y_i|x_{ij}=1,\color{red}{...}]-\\\:-\;\mathbb{E}[y_i|x_{ij}=0,\color{red}{...}]$$
+
+если $x_j$ бинарный
+
+]
+
+---
+class: section, animated, zoomIn
+# Нелинейные эффекты:
+## почему они могут понадобиться?
+
+---
+class: center, animated, flipInY
+## .gb[Пример 6.2]
+### Слишком сильные различия в уровне зависимой переменной
+### для разных объектов
+
+
+.pull-left[.rmk[.rb[!] Изменения регрессора должны отражать относительные изменения зависимой переменной]] .pull-right[.rmk[.gb[Например,] типично для цен, макропеременных, абсолютных показателей фирм, доходов индивидов и т.д.]]
+
+---
+class: center, animated, flipInX
+## .gb[Пример 6.3]
+### Аналогично, если необходимо отразить
+### относительные изменения регрессора
+
+.pull-left[.rmk[.rb[!] Применимо только к числовым, непрерывным регрессорам]]
+
+---
+class: center, animated, flipInY
+## .gb[Пример 6.4]
+### Эффект регрессора отличается для объектов,
+### относящихся к разным группам
+
+.left[.gb[Например,...]
+
+ - Доступность общественного транспорта вносит разный вклад в стоимость недвижимости в разных районах города
+ 
+ - Дополнительный год стажа дает разную отдачу в зарплате в зависимости от уровня образования
+ 
+ - и т.д.
+
+]
+
+---
+class: center, animated, flipInX
+## .gb[Пример 6.5]
+### Эффект регрессора нелинейный
+### или даже не монотонный
+
+.left[.gb[Например,...]
+
+ - "Кривая Кузнеца" и "Экологическая кривая Кузнеца"
+ 
+ - Стоимость фирмы нелинейно зависит от CSR
+ 
+ - Немонотонная связь между конкурентностью</br>рынков и R&D в фирмах
+ 
+ - и т.д.
+
+]
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+

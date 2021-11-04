@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Эконометрика, Осень 2021</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Владимир Пырлик" />
+    <link rel="stylesheet" href="libs/main.css" type="text/css" />
+    <link rel="stylesheet" href="libs/fonts.css" type="text/css" />
+    <link rel="stylesheet" href="libs/animate.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Эконометрика, Осень 2021
+## Лекция 6.</br>Нелинейные эффекты в ММЛР
+### Владимир Пырлик
+### Октябрь 2021
+
+---
+
+class: section, animated, zoomIn
+# Разминка
+
+---
+class: section, animated, zoomIn
+# Оцнка моделей с нелинейными эффектами
+
+---
+class: animated, fadeIn
+
+ `$$Y=X'\beta+U$$`
+
+--
+
+- решаем, какая д.б. модель
+
+--
+
+- составляем матрицы Y, X
+
+--
+
+- вычисляем `\(\hat\beta,\;\hat V_{\hat\beta}\)`
+
+--
+
+## Всё!
+
+### Дальше можем
+ - строить ДИ
+ - проверять гипотезы
+ - интерпретировать результаты
+ - ... *всё в зависимости от целей*
+
+---
+class: section, animated, fadeIn
+# Проверка значимости&lt;/br&gt;при нелинейных эффектах
+
+---
+class: animated, fadeIn
+## .gb[Пример] Рассмотрим модель
+
+`$$y_i=\beta_o+\beta_1x_{i1}+\beta_2x_{i2}+\color{red}{\beta_3x_{i1}x_{i2}}+...+u_i,\;\color{blue}{...}$$`
+**Задача:** проверить значимость эффекта регрессороа `\(x_1\)` .right[.bb[?].rmk[как?]]
+
+--
+
+**Вариант 1:** Проверить `\(H_o:\{\beta_1=0,\;\beta_3=0\}\)` .right[.bb[?].rmk[как?]]
+
+--
+
+**Вариант 2:** Проверить значимость *предельного эффекта* .right[.bb[?].rmk[как?]]
+
+--
+
+ - найти предельный эффект
+
+--
+
+ - проверить значимость 😄
+
+---
+class: section, animated, zoomIn
+# О немонотонных эффектах
+
+---
+class: middle, center, animated, rotateIn
+### Lind, J. T., &amp; Mehlum, H. (2010).&lt;/br&gt;**With or without U? The appropriate test for a U‐shaped relationship.**&lt;/br&gt;*Oxford bulletin of economics and statistics*, 72(1), 109-118.
+
+.gb[О моделировании и проверке немонотонных эффектов]
+
+---
+class: animated, fadeIn
+## Почему немонотонные эффекты важны?
+
+.center[
+
+.rb[!] Это важный содержательный вопрос во многих контекстах
+
+]
+
+--
+
+&lt;/br&gt;
+
+**Варианты вопроса**
+
+ - сохраняется ли эффект при любом масштабе воздействия?
+
+--
+
+ - не наступает ли насыщение / перегиб в эффекте?
+
+--
+
+ - есть ли в перспективе обратный эффект?
+ 
+ - и т.д.
+
+---
+class: animated, fadeIn
+## Как это замоделировать?
+
+.center[Квадратичная зависимость]
+
+`$$y_i=...+\beta_1x_i+\color{red}{\beta_2x_i^2}+...$$`
+
+--
+
+&lt;/br&gt;
+
+.center[Обратная зависимость]
+
+`$$y_i=...+\beta_1x_i+\color{red}{\beta_2x_i^{-1}}+...$$`
+
+---
+class: animated, fadeIn
+## Как проверить значимость?
+
+.rb[!] На практике часто `\(\color{red}{\text{некорректно}}\)` ограничиваются проверкой
+
+`$$H_o\:\{\beta_1=0,\;\beta_2=0\}$$`
+
+--
+
+&lt;/br&gt;
+
+.gb[!] Корректно - проверить **значимость предельного эффекта** .right[.rmk[.bb[?]как?]]
+
+--
+
+- найти предельный эффект
+
+- проверить значимость 😄
+
+--
+
+- правильно интерпретировать .rb[!]
+
+
+---
+class: animated, fadeIn
+## Предельный эффект в модели 
+
+`$$y_i=...+\beta_1x_i+\color{red}{\beta_2x_i^2}+...$$`
+
+`$$\frac{\partial\mathbb{E}[y_i|x_i=x]}{\partial x}=\beta_1+2\beta_2x$$`
+
+--
+
+### ... и его свойства
+
+`$$\sqrt{n}(\hat\beta_1+2\hat\beta_2x-\beta_1-\beta_2x)\xrightarrow[n\to\infty]{d}\mathcal{N}\left(0;[1\;x]\tilde V_{\hat\beta}\left[\begin{matrix}1\\x\end{matrix}\right]\right)$$`
+
+--
+
+`$$SE(\hat\beta_1+\hat\beta_2x)=\sqrt{\frac{[1\;x]\tilde{\hat V_{\hat\beta}}\left[\begin{matrix}1\\x\end{matrix}\right]}{n}}$$`
+
+---
+class: animated, fadeIn
+## Альтернативный способ
+
+.center[Проверить экстремум] .right[.rmk[.bb[?] как?]]
+
+`$$\tilde {\tilde x} = -\frac{\beta_1}{2\beta_2}$$`
+--
+
+### что с ним делать?
+
+- найти и оценить предельное распределение
+
+- построить ДИ
+
+- интерпретировать
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+##
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false,
+"highlightLines": true,
+"ratio": "8:5"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

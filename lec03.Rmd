@@ -1,8 +1,8 @@
 ---
 title: "Эконометрика, Осень 2021"
-subtitle: "Лекция 3.</br>Модели и подходы. Принцип аналогии.</br>Модель регрессии. Регрессия на константу."
+subtitle: "Лекция 4.</br>ММЛР. Пример, обсуждение."
 author: "Владимир Пырлик"
-date: "Сентябрь 2021"
+date: "Октябрь 2021"
 output:
   xaringan::moon_reader:
     mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"

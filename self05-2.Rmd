@@ -1,0 +1,289 @@
+---
+title: "Эконометрика, Осень 2021"
+subtitle: "Неделя 5. (2) **ММЛР:** проверка гипотез (I)"
+author: "Владимир Пырлик"
+date: "Сентябрь 2021"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    lib_dir: libs
+    css: [libs/main.css, libs/fonts.css, libs/animate.css]
+    chakra: libs/remark-latest.min.js
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+      highlightLines: true
+      ratio: "8:5"
+---
+class: section, animated, fadeIn
+## Разные виды гипотез
+
+---
+class: animated, fadeIn
+## Постановка гипотезы
+
+1. Содержательная постановка
+
+--
+
+2. Модельная постановка
+
+--
+
+3. Нормальная параметрическая форма
+
+---
+class: animated, fadeIn
+## .gb[Пример 5.1] Постановка разных гипотез в ММЛР
+
+Рассмотрим ММЛР (со всеми предположениями)
+
+\begin{align}
+  P_i =\beta_o &+\beta_1M_i+\beta_2B_i+\\
+               &+\beta_3F_i+\beta_4f_i+\beta_5\ell_i+\\
+               &+\beta_6R_i+\beta_7C_i+...+u_i
+\end{align}
+
+$P_i$ - стоимость аренды жилья, руб/кв.м/мес
+
+$M_i,\:B_i$ - расстояние до ближайшей станции метро / остановки автобуса, км
+
+$F_i,\;f_i,\;\ell_i$ - этаж, индикаторы первого и последнего этажей,
+
+$R_i,\;C_i$ - индикаторы районов города "Правый берег", "Центр"
+
+---
+class: section, animated, flipInX
+# Простые гипотезы
+
+---
+class: animated, fadeIn
+### Содержательная:
+
+.center[*При прочих равных, цена квартир на последнем этаже</br>ничем не отличается*]
+
+--
+### Модельная постановка:
+
+$$\mathbb{E}[P_i|\ell_i=1,...]-\mathbb{E}[P_i|\ell_i=0,...]=0$$
+
+--
+### Нормальная форма:
+
+\begin{align}
+  H_o &: \{\beta_5=0\},\\
+  \textbf{vs}\;H_a &: \{\beta_5\neq 0\}
+\end{align}
+
+---
+class: animated, fadeIn
+### Содержательная:
+
+.center[*При прочих равных, квартиры на первом этаже</br>дешевле других более, чем на 1000 руб/кв.м/мес*]
+
+--
+### Модельная постановка:
+
+$$\mathbb{E}[P_i|f_i=1,...]-\mathbb{E}[P_i|...]<-1000$$
+
+--
+### Нормальная форма:
+
+\begin{align}
+  H_o &: \{\beta_4=-1000\},\\
+  \textbf{vs}\;H_a &: \{\beta_4 < -1000\}
+\end{align}
+
+---
+class: animated, fadeIn
+### Содержательная:
+
+.center[*При прочих равных, квартиры на первом этаже</br>дешевле других более, чем на 1000 руб/кв.м/мес*]
+
+### Модельная постановка:
+
+$$\mathbb{E}[P_i|f_i=1,...]-\mathbb{E}[P_i|...]<-1000$$
+
+### Нормальная форма:
+
+\begin{align}
+  H_o &: \{\beta_4\color{red}{+1000=0}\},\\
+  \textbf{vs}\;H_a &: \{\beta_4 \color{red}{+ 1000<0}\}
+\end{align}
+
+---
+class: section, animated, flipInX
+# Не такие уж и простые гипотезы...
+
+---
+class: animated, fadeIn
+### Содержательная:
+
+.center[*При прочих равных, цены квартир на первом и последнем этажах не отличаются от других*]
+
+--
+### Модельная постановка:
+
+.rb[!] Вообще, в рамках такой модели не проверяется ;)
+
+--
+### Нормальная форма:
+
+\begin{align}
+  H_o &: \{\beta_4=\beta_5=0\},\\
+  \textbf{vs}\;H_a &: \{H_o\;\text{неверна}\}
+\end{align}
+
+---
+class: animated, fadeIn
+### Содержательная:
+
+.center[*При прочих равных, цены квартир на первом и последнем этажах не отличаются от других*]
+
+### Модельная постановка:
+
+.rb[!] Вообще, в рамках такой модели не проверяется ;)
+
+### Нормальная форма:
+
+\begin{align}
+  H_o &: \{\beta_4\color{red}{=0}, \beta_5\color{red}{=0}\},\\
+  \textbf{vs}\;H_a &: \{H_o\;\text{неверна}\}
+\end{align}
+
+---
+class: section, animated, fadeIn
+## Матричная запись
+## гипотезы о линейных ограничениях на параметры
+
+--
+
+$$R\beta-r=0$$
+
+--
+.left[
+$R\;\;$ - $\;\;m\times(k+1)$ коэффициенты ограничений, $m<k+1$
+
+$r\;\;$ - $\;\;m\times 1$ вектор "правых частей ограничений"
+
+$0\;\;$ - $\;\;$ вектор из $m$ нулей
+]
+
+---
+class: animated, fadeIn
+
+\begin{align}
+  H_o &: \{\beta_4\color{red}{=0}, \beta_5\color{red}{=0}\},\\
+  \textbf{vs}\;H_a &: \{H_o\;\text{неверна}\}
+\end{align}
+
+--
+
+$$k+1=8,\;\;m=2$$
+
+--
+
+\begin{equation}
+  \left[\begin{matrix}... &... &... &... &... &... &... &... \\... &... &... &... &... &... &... &...\end{matrix}\right] \;\cdot\;\left[\begin{matrix}\beta_o\\\beta_1\\\beta_2\\\beta_3\\\beta_4\\\beta_5\\\beta_6\\\beta_7\end{matrix}\right] \;\; = \left[\begin{matrix}0\\0\end{matrix}\right]
+\end{equation}
+
+---
+class: animated, fadeIn
+
+\begin{align}
+  H_o &: \{\beta_4\color{red}{=0}, \beta_5\color{red}{=0}\},\\
+  \textbf{vs}\;H_a &: \{H_o\;\text{неверна}\}
+\end{align}
+
+$$k+1=8,\;\;m=2$$
+
+\begin{equation}
+  \left[\begin{matrix}0 &0 &0 &0 &... &... &0 &0 \\0 &0 &0 &0 &... &... &0 &0\end{matrix}\right] \;\cdot\;\left[\begin{matrix}\beta_o\\\beta_1\\\beta_2\\\beta_3\\\beta_4\\\beta_5\\\beta_6\\\beta_7\end{matrix}\right] \;\; = \left[\begin{matrix}0\\0\end{matrix}\right]
+\end{equation}
+
+---
+class: animated, fadeIn
+
+\begin{align}
+  H_o &: \{\beta_4\color{red}{=0}, \beta_5\color{red}{=0}\},\\
+  \textbf{vs}\;H_a &: \{H_o\;\text{неверна}\}
+\end{align}
+
+$$k+1=8,\;\;m=2$$
+
+\begin{equation}
+  \left[\begin{matrix}0 &0 &0 &0 &1 &0 &0 &0 \\0 &0 &0 &0 &0 &1 &0 &0\end{matrix}\right] \;\cdot\;\left[\begin{matrix}\beta_o\\\beta_1\\\beta_2\\\beta_3\\\beta_4\\\beta_5\\\beta_6\\\beta_7\end{matrix}\right] \;\; = \left[\begin{matrix}0\\0\end{matrix}\right]
+\end{equation}
+
+---
+class: animated, fadeIn
+### Содержательная:
+
+.center[*При прочих равных, вклад в цену 1км близости к метро такой же, как 1км близости к автобусной остановке*]
+
+--
+### Модельная постановка:
+
+\begin{align}
+  & \mathbb{E}[P_i|M_i=M,...]-\mathbb{E}[P_i|M_i=M+1,...]=\\
+  =\;& \mathbb{E}[P_i|B_i=B,...]-\mathbb{E}[P_i|B_i=B+1,...]
+\end{align}
+
+--
+### Нормальная форма:
+
+\begin{align}
+  H_o &: \{\beta_1-\beta_2=0\},\\
+  \textbf{vs}\;H_a &: \{H_o\;\text{неверна}\}
+\end{align}
+.right[.rmk[.rb[ДЗ]а как это записать в матричной форме?]]
+
+---
+class: animated, fadeIn
+### Содержательная:
+
+.center[*При прочих равных, разница в цене кваритир в центре и прочих в два раза выше разницы квартир на правом берегу и прочих*]
+
+--
+### Модельная постановка:
+
+$$\frac{\mathbb{E}[P_i|C_i=1,...]-\mathbb{E}[P_i|C_i=0,...]}
+       {\mathbb{E}[P_i|R_i=1,...]-\mathbb{E}[P_i|R_i=0,...]} = 2$$
+
+--
+### Нормальная форма:
+
+\begin{align}
+  H_o &: \left\{\frac{\beta7}{\beta_6}-2=\right\},\\
+  \textbf{vs}\;H_a &: \{H_o\;\text{неверна}\}
+\end{align}
+
+---
+class: section, animated, zoomIn
+# Общая форма</br>нормальной записи</br>гипотезы о параметрах
+
+---
+class: section, animated, fadeIn
+
+$$H_o:\{g(\beta)=0\}\;\;\textbf{vs}\;\;H_a:\{H_o\;\text{неверна}\}$$
+</br>
+
+$$g(b):\mathbb{R}^{k+1}\to \mathbb{R}^m$$
+
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+

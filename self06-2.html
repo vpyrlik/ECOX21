@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Эконометрика, Осень 2021</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Владимир Пырлик" />
+    <link rel="stylesheet" href="libs/main.css" type="text/css" />
+    <link rel="stylesheet" href="libs/fonts.css" type="text/css" />
+    <link rel="stylesheet" href="libs/animate.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Эконометрика, Осень 2021
+## Неделя 6. (2) <strong>ММЛР:</strong> нелинейные эффекты (II)
+### Владимир Пырлик
+### Октябрь 2021
+
+---
+
+class: animated, fadeIn
+## План
+
+ - предельные эффекты в базовой модели
+ 
+ - почему мы можем хотеть иметь в модели нелинейные эффекты
+ 
+ - основные виды нелинейных эффектов в ММЛР
+ 
+ - тесты, связанные с нелинейными эффектами
+
+
+---
+class: animated, fadeIn
+## План
+
+ - основные виды нелинейных эффектов в ММЛР
+
+---
+class: section, animated, fadeIn
+# log-формы
+&lt;/br&gt;
+### log-log
+### log-лин
+### лин-log
+
+---
+class: middle, center, animated, zoomIn
+
+.rb[!] Переход в log-шкалы:&lt;/br&gt; основной способ перейти к относительным эффектам
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.5] Рассмотрим *зависимость*
+
+`$$\log(y) = ... + \beta x + ...$$`
+--
+
+`$$\beta\;=\;\frac{\partial \log(y)}{\partial x}\;=\;\frac{\partial y}{y\cdot\partial x}$$`
+
+--
+
+`$$\frac{\partial y}{y}\;-\;\text{малое относительное изменение }y$$`
+
+--
+
+.center[
+
+*При изменении* `\(x\)` *на единицу*&lt;/br&gt; `\(y\)` *меняется на* `\(100\times\beta\:\%\)`
+
+]
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.6] Рассмотрим *зависимость*
+
+`$$y = ... + \beta \log(x) + ...$$`
+`$$\beta\;=\;\frac{\partial y}{\partial \log(x)}\;=\;\frac{x\cdot\partial y}{\partial x}=\partial y\big/\tfrac{\partial x}{x}$$`
+
+`$$\frac{\partial x}{x}\;-\;\text{малое относительное изменение }x$$`
+
+--
+
+.center[
+
+*При изменении* `\(x\)` *на 1%*&lt;/br&gt; `\(y\)` *меняется на* `\(\beta\)` *единиц*
+
+]
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.7] Рассмотрим *зависимость*
+
+`$$\log(y) = ... + \beta \log(x) + ...$$`
+`$$\beta\;=\;\frac{\partial \log(y)}{\partial \log(x)}\;=\;\frac{x\cdot\partial y}{y\cdot\partial x}=\tfrac{\partial y}{y}\big/\tfrac{\partial x}{x}$$`
+
+.right[.bb[?] .rmk[Что это за характеристика?]]
+
+--
+
+.center[
+
+`\(\beta\)` **показывает эластичность:** 
+
+*При изменении* `\(x\)` *на 1%*&lt;/br&gt; `\(y\)` *меняется на* `\(100\times\beta\:\%\)`
+
+]
+
+---
+class: section, animated, fadeIn
+### Это все были детерминированные зависимости... 
+&lt;/br&gt;
+# А как быть с коэффициентами ММЛР?
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.8] Рассмотрим **фрагмент ММЛР**
+
+`$$\log(y_i)\;=\;...\;+\;\beta_jx_{ij}\;+\;...\;+u_i,\;\color{blue}{...}$$`
+.right[.bb[?] .rmk[что здесь объект моделирования?]]
+
+--
+
+`$$\beta_j\;=\;\frac{\mathbb{E}[\log(y_i)|x_{ij}=x,\color{red}{...}]}{\partial x}$$`
+
+--
+
+.center[
+
+.rb[!] **На практике всё равно интерпретируют, что**
+
+`$$\beta_j\;\approx\;\mathbb{E}\left[\frac{\partial y_i}{y_i\cdot\partial x}\Big|x_i=x\right]$$`
+*При изменении* `\(x_j\)` *на 1 единицу*&lt;/br&gt;*ожидаемое изменение* `\(y\)` *составляет* `\(100\times\beta_j\:\%\)` 
+
+]
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.9] В модели ММЛР
+
+`$$\log(sales_i)=...\beta\log(advert_i)+...+u_i,\;\color{blue}{...}$$`
+мы получили оценку окэффициента
+
+`$$\hat\beta=0.008\;(SE(\hat\beta)=0.00015)$$`
+
+--
+
+.center[
+
+.bb[?] Как стоит интерпретировать оценку коэффициента `\(\beta\)`?
+
+]
+
+--
+
+.center[
+
+.bb[?] Фирма планирует увеличить расходы на рекламу на 1000USD, каких изменений продаж стоит ожидать?
+
+]
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.9] В модели ММЛР
+
+`$$\log(sales_i)=...\beta\log(advert_i)+...+u_i,\;\color{blue}{...}$$`
+мы получили оценку окэффициента
+
+`$$\hat\beta=0.008\;(SE(\hat\beta)=0.00015)$$`
+
+.center[
+
+.bb[?] Как стоит интерпретировать оценку коэффициента `\(\beta\)`?
+
+]
+
+.center[
+
+.bb[?] Фирма планирует увеличить расходы на рекламу на 2%,&lt;/br&gt;каких изменений продаж стоит ожидать?
+
+]
+
+--
+
+.center[
+
+**Ответ:** на `\(2\times100\times\hat\beta\:\%=1.6\%\)`
+
+]
+
+---
+class: section, animated, zoomIn
+# Неоднородные по группам эффекты
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.10] Рассмотрим ММЛР
+
+`$$log(w_i) = \beta_o+\beta_1a_i+\beta_2f_i+\color{red}{\beta_3\:a_i\cdot f_i} +\;...\;+u_i,\;\color{blue}{...}$$`
+--
+
+.center[
+
+.bb[?] Каковы ожидаемые изменения зарплаты индивида&lt;/br&gt;с увеличением возраста (при прочих равных)?
+
+]
+
+--
+
+`$$\frac{\partial\mathbb{E}[\log(w_i)|a_i=a,...]}{\partial a}=\;...\neq\beta_1$$`
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.10] Рассмотрим ММЛР
+
+`$$log(w_i) = \beta_o+\beta_1a_i+\beta_2f_i+\color{red}{\beta_3\:a_i\cdot f_i} +\;...\;+u_i,\;\color{blue}{...}$$`
+
+.center[
+
+.bb[?] Каковы ожидаемые изменения зарплаты индивида&lt;/br&gt;с увеличением возраста (при прочих равных)?
+
+]
+
+`\begin{align}
+  \frac{\partial\mathbb{E}[\log(w_i)|a_i=a,\color{red}{f_i=1},...]}{\partial a} &amp;= \beta_1+\beta_3,\\\\
+    \frac{\partial\mathbb{E}[\log(w_i)|a_i=a,\color{red}{f_i=0},...]}{\partial a} &amp;= \beta_1
+\end{align}`
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.10] Рассмотрим ММЛР
+
+`$$log(w_i) = \beta_o+\beta_1a_i+\beta_2f_i+\color{red}{\beta_3\:a_i\cdot f_i} +\;...\;+u_i,\;\color{blue}{...}$$`
+
+.center[
+
+.bb[?] Каковы ожидаемые изменения зарплаты индивида&lt;/br&gt;с увеличением возраста (при прочих равных)?
+
+]
+
+&lt;/br&gt;
+
+.center[
+
+*С увеличение возраста на 1 год*&lt;/br&gt;*зарплата женщины в среднем увеличивается на * `\(100\times(\beta_1+\beta_3)\:\%,\)`&lt;/br&gt;*а не женщин - на* `\(100\times\beta_1\:\%\)` 
+
+]
+
+---
+class: section, animated, zoomIn
+# Нелинейные
+
+### и даже немонотонные 
+
+# эффекты
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.11] Рассмотрим ММЛР
+
+`$$gr_i=\beta_o+\beta_1cr_i+\color{red}{\beta_2cr_i^2}+...+u_i,\;\color{blue}{...}$$`
+--
+
+.center[
+
+.bb[?] Как изменяется экономический рост&lt;/br&gt;при изменении доступности кредита бизнесу?
+
+]
+
+--
+
+`$$\frac{\partial\mathbb{E}[gr_i|cr_i=cr,...]}{\partial cr}=...\neq\beta_1$$`
+
+---
+class: animated, fadeIn
+## .gb[Пример 6.11] Рассмотрим ММЛР
+
+`$$gr_i=\beta_o+\beta_1cr_i+\color{red}{\beta_2cr_i^2}+...+u_i,\;\color{blue}{...}$$`
+
+.center[
+
+.bb[?] Как изменяется экономический рост&lt;/br&gt;при изменении доступности кредита бизнесу?
+
+]
+
+`$$\frac{\partial\mathbb{E}[gr_i|cr_i=cr,...]}{\partial cr}=\beta_1+2\beta_2cr$$`
+
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+##
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false,
+"highlightLines": true,
+"ratio": "8:5"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

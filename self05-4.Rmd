@@ -1,0 +1,151 @@
+---
+title: "Эконометрика, Осень 2021"
+subtitle: "Неделя 5. (4) **ММЛР:** проверка гипотез (III)"
+author: "Владимир Пырлик"
+date: "Октябрь 2021"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    lib_dir: libs
+    css: [libs/main.css, libs/fonts.css, libs/animate.css]
+    chakra: libs/remark-latest.min.js
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+      highlightLines: true
+      ratio: "8:5"
+---
+class: animated, fadeIn
+## План
+
+ - общая схема проверки гипотез, **критерий Вальда**
+
+---
+class: section, animated, flipInX
+# Техническая часть
+
+---
+class: animated, fadeIn
+## Что мы имеем?
+
+ - ММЛР: $y_i=x_i'\beta+u_i,\color{blue}{...}$
+ 
+ - гипотезу в нормальной форме: $H_o:\{g(\beta)=0\}$ **vs** $H_a$
+
+---
+class: animated, fadeIn
+## Что мы делаем?
+
+ - получаем оценки $\hat\beta,\;\hat V_{\hat\beta}$ и строим **статистику Вальда**
+ 
+$$W\;=\;n\: g(\hat\beta)'\:\Big(\hat G\hat V_{\hat\beta}\hat G'\Big)^{-1}\:g(\hat\beta)$$
+
+--
+
+- критерий хи-квадрат основан на том, что
+
+$$\text{если}\;H_o\;\text{верна, то}\;W\xrightarrow[n\to\infty]{d}\chi^2_{m}$$
+
+--
+
+- $H_o$ отвергается, если
+
+$$\underset{=\text{P-value}}{1-F_{\chi^2_m}(W)} < \underset{\in\{0.1,\;0.05,\;0.1,\;...\}}{\text{критический размер}}$$
+
+
+---
+class: animated, fadeIn
+## Что мы делаем?
+
+ - получаем оценки $\hat\beta,\;\hat V_{\hat\beta}$ и строим **статистику Вальда**
+ 
+$$W\;=\;n\: g(\hat\beta)'\:\Big(\hat G\hat V_{\hat\beta}\hat G'\Big)^{-1}\:g(\hat\beta)$$
+
+- критерий хи-квадрат основан на том, что
+
+$$\text{если}\;H_o\;\text{верна, то}\;W\xrightarrow[n\to\infty]{d}\chi^2_{m}$$
+
+
+- $H_o$ отвергается, если
+
+$$W > \underset{=\text{ кр. знач.}}{F^{-1}_{\chi^2_m}(1-\alpha)},\;\;\alpha\in\{0.1,\;0.05,\;0.1,\;...\}$$
+---
+## Критические значения статистики Вальда
+
+$$F^{-1}_{\chi^2_\color{red}m}(1-\color{red}\alpha)$$
+
+--
+
+```{r, eval=FALSE}
+qchisq(1-alpha,m)
+```
+
+--
+
+```{r,eval=TRUE,echo=FALSE,warning=FALSE}
+library(foreach)
+m    <- c(1,2,3,4,10)
+tab1 <- foreach(alpha=c(0.1,0.05,0.01), .combine=rbind) %do% {
+  sapply(m, function(x) qchisq(1-alpha, x))
+}
+rownames(tab1) = paste("$$\\alpha=",c(0.1,0.05,0.01),"$$",sep="")
+colnames(tab1) = paste("$m=",m,"$",sep="")
+knitr::kable(tab1,digits=2,type='latex',escape=FALSE)
+```
+
+---
+class: section, animated, bounceInLeft
+# Общая схема проверки гипотезы в модели
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+

@@ -1,0 +1,150 @@
+---
+title: "Эконометрика, Осень 2021"
+subtitle: "Неделя 9. (2)</br>2шМНК: парный случай"
+author: "Владимир Пырлик"
+date: "Ноябрь 2021"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    lib_dir: libs
+    css: [libs/main.css, libs/fonts.css, libs/animate.css]
+    chakra: libs/remark-latest.min.js
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+      highlightLines: true
+      ratio: "8:5"
+---
+class: animated, fadeIn
+## План
+
+ - Парная модель с одним инструментом
+ 
+ - 2-шаговый МНК
+ 
+ - Свойства оценок 2шМНК (кратко)
+
+---
+class: animated, fadeIn
+## Обязательное чтение
+
+### Модель с инструментальными переменными
+
+ - [SW] Глава 12, пункт 12.1
+ 
+ - [SW] Приложение 12.3
+ 
+ - [HE] Глава 12, 12.1 - 12.5
+
+--
+
+### Примеры
+
+ - [HE] Глава 12, пункт 12.3
+
+ - [SW] Глава 12, пример про спрос на сигареты
+
+ - [SW] Глава 12, пример "Задача Филипа Райта"
+
+---
+class: section, animated, zoomIn
+# 2-шаговый Метод Наименьших Квадратов
+## (случай с одним регрессором и одним инструментом)
+
+---
+class: animated, fadeIn
+## Парная модель с инструментом
+
+$$y_i=\beta_o+\beta_1x_i+u_i,\;\text{но не гарантированно}\;\mathbb{E}[u_i|x_i]=0.$$
+.right[.rmk[прочие предположения выполняются]]
+
+--
+
+$$x_i=\pi_o+\pi_1z_i+v_i,\;\mathbb{E}[v_i|z_i]=0$$
+
+--
+
+$z_i$ - **инструментальная переменная**,</br>для которой выполняются предположения:
+
+--
+
+ - сила (relevance): $\text{cov}(x_i,z_i)\neq0$
+
+--
+
+ - годность (validity): $\text{cov}(u_i,z_i)=0$ .left[.rmk[или "экзогенность" (exogeneity)]]
+
+---
+class: animated, fadeIn
+## 2-шаговый метод наименьших квадратов
+
+.rb[!] **Идём "в обход"**:</br>сначала выводим оценку, потом разбираемся, что оценили...
+
+--
+
+.center[**Шаг I**]
+
+$$\hat\pi_o,\;\hat\pi_1\;-\;\text{оценки МНК}\;x\;\text{на}\;z$$
+
+--
+
+$$\hat x_i=\hat\pi_o+\hat\pi_1z_i\;-\;\text{предсказанные (на основе}\;z\text{) значения}\;x$$
+
+--
+
+.center[**Шаг II**]
+
+$$\hat\beta_o^{TSLS},\hat\beta_1^{TSLS}\;-\;\text{оценки МНК}\;y\;\text{на}\;\color{red}{\hat x}$$
+
+---
+class: animated, fadeIn
+## Оценки 2шМНК .right[.rmk[подробнее в [SW] 12.1]]
+
+$$\hat\beta_1^{TSLS}=\frac{\widehat{\text{cov}}(y,z)}{\widehat{\text{cov}}(x,z)}\;\xrightarrow[n\to\infty]{p}\;\frac{\text{cov}(y,z)}{\text{cov}(x,z)}\;\stackrel{\color{red}{\textbf{?}}}{=}\;\beta_1$$
+
+--
+
+</br>
+
+$$\frac{\text{cov}(y,z)}{\text{cov}(x,z)}=\frac{\text{cov}(y,z)}{\text{var}(z)}\:\Big/\:\frac{\text{cov}(x,z)}{\text{var}(z)}=\;...$$
+
+---
+class: animated, fadeIn
+## Оценки 2шМНК .right[.rmk[подробнее в [SW] 12.1]]
+
+$$\hat\beta_1^{TSLS}=\frac{\widehat{\text{cov}}(y,z)}{\widehat{\text{cov}}(x,z)}\;\xrightarrow[n\to\infty]{p}\;\frac{\text{cov}(y,z)}{\text{cov}(x,z)}\;\stackrel{\color{white}{\textbf{?}}}{=}\;\beta_1$$
+
+</br>
+
+$$\frac{\text{cov}(y,z)}{\text{cov}(x,z)}=\frac{\text{cov}(y,z)}{\text{var}(z)}\:\Big/\:\frac{\text{cov}(x,z)}{\text{var}(z)}=\beta_1\pi_1\:\big/\:\pi_1\;=\;\color{red}{\beta_1}$$
+
+--
+
+</br>
+
+.bb[ДЗ] Показать аналогичное свойство для $\hat\beta_o^{TSLS}$
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+

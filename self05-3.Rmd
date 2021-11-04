@@ -1,0 +1,71 @@
+---
+title: "Эконометрика, Осень 2021"
+subtitle: "Неделя 5. (4) **ММЛР:** проверка гипотез (III)"
+author: "Владимир Пырлик"
+date: "Октябрь 2021"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    lib_dir: libs
+    css: [libs/main.css, libs/fonts.css, libs/animate.css]
+    chakra: libs/remark-latest.min.js
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+      highlightLines: true
+      ratio: "8:5"
+---
+class: animated, fadeIn
+## План
+
+ - общая схема проверки гипотез, **критерий Вальда**
+
+---
+class: animated, fadeIn
+## Что мы имеем?
+
+ - ММЛР: $y_i=x_i'\beta+u_i,\color{blue}{...}$
+ 
+ - оценки МНК, $\hat\beta$, оценку $\hat V_{\hat\beta}$
+ 
+ - гипотезу в нормальной форме, $H_o:\{g(\beta)=0\}$ **vs** $H_a$
+ 
+ - 
+
+
+$$\sqrt{n}\Big(g(\hat\beta)-g(\beta)\Big)\xrightarrow[n\to\infty]{d}\mathcal{N}(0;GV_{\hat\beta}G'),$$
+
+как построить **скалярную статистику**?
+
+--
+
+.rb[1.] Перейти к **хи-квадрат распределению**
+
+--
+
+$$n\cdot\Big(g(\hat\beta)-g(\beta)\Big)'\;\Big( G V_{\hat\beta} G'\Big)^{-1}\;\Big(g(\hat\beta)-g(\beta)\Big)\xrightarrow[n\to\infty]{d}\chi^2_{m}$$
+
+---
+class: animated, fadeIn
+## .gb[Пример 5.6] Построение хи-квадрат статистики
+
+В какой-то модели, имея результат
+
+$$\sqrt{n}\Big(g(\hat\beta)-g(\beta)\Big)\xrightarrow[n\to\infty]{d}\mathcal{N}(0;GV_{\hat\beta}G'),$$
+
+как построить **скалярную статистику**?
+
+
+.rb[2.] Перейти к **оценкам параметров**, где необходимо
+
+
+$$n\cdot\Big(g(\hat\beta)-g(\beta)\Big)'\;\color{red}{\Big(\hat G\hat V_{\hat\beta}\hat G'\Big)^{-1}}\;\Big(g(\hat\beta)-g(\beta)\Big)\xrightarrow[n\to\infty]{d}\chi^2_{m}$$
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+

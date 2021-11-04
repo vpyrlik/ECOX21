@@ -1,0 +1,108 @@
+---
+title: "Эконометрика, Осень 2021"
+subtitle: "Лекция 4.</br>ММЛР. Пример, обсуждение."
+author: "Владимир Пырлик"
+date: "Октябрь 2021"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    lib_dir: libs
+    css: [libs/main.css, libs/fonts.css, libs/animate.css]
+    chakra: libs/remark-latest.min.js
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+      highlightLines: true
+      ratio: "8:5"
+
+---
+class: animated, fadeIn
+```{r, echo=FALSE,eval=TRUE}
+stargazer(dta2,type='text')
+```
+
+---
+class: animated, fadeIn
+```{r, echo=FALSE, fig.height = 9, fig.width = 16}
+par(mfrow=c(1,2))
+plot(x=within5km, y=log(dta1$price),pch='.',
+     xlab="number of obj within 5 km",
+     ylab="price, USD, log scale")
+abline(lm1$coefficients, lwd=2, col='red')
+legend('top',legend=c('data','regression line'),lwd=c(0,2),pch=c('.',''),col=c('black','red'),lty=c(0,1))
+plot(x=within1km, y=log(dta1$price),pch='.',
+     xlab="number of obj within 1 km",
+     ylab="price, USD, log scale")
+abline(lm(log(price)~1+within1km,data=dta2)$coefficients, lwd=2, col='red')
+legend('top',legend=c('data','regression line'),lwd=c(0,2),pch=c('.',''),col=c('black','red'),lty=c(0,1))
+```
+ 
+---
+class: animated, fadeIn
+```{r, echo=FALSE}
+stargazer(cf1,cf2,type='text')
+```
+
+---
+class: animated, fadeIn
+```{r, echo=FALSE}
+stargazer(cf1,cf2,cf3,type='text')
+```
+
+---
+class: animated, fadeIn
+```{r, echo=FALSE}
+stargazer(cf3,cf4,type='text')
+```
+
+---
+class: animated, fadeIn
+```{r, echo=FALSE}
+
+```
+
+---
+class: animated, fadeIn
+```{r, echo=FALSE}
+
+```
+
+---
+class: animated, fadeIn
+```{r, echo=FALSE}
+
+```
+
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+## 
+
