@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Эконометрика, Осень 2021</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Владимир Пырлик" />
+    <link rel="stylesheet" href="libs/main.css" type="text/css" />
+    <link rel="stylesheet" href="libs/fonts.css" type="text/css" />
+    <link rel="stylesheet" href="libs/animate.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Эконометрика, Осень 2021
+## Лекция 11.</br>Модли бинарного выбора: продолжение
+### Владимир Пырлик
+### Ноябрь 2021
+
+---
+
+class: animated, fadeIn
+## Модель бинарного выбора: общая постановка
+
+Зависимая переменная - банарный "статус"
+
+`$$y_i\in\{0,\;1\}$$`
+
+Объясняющие переменные - привычный нам набор `\(k+1\)` переменных
+
+`$$x_i=(1\;\;x_{i1}\;\;x_{i2}\;\;...\;\;x_{ik})'$$`
+
+--
+
+Объект моделирвоания - всё условное распределение
+
+`$$y_i|x_i\sim G(x_i;\beta)$$`
+
+--
+
+`$$G(x;\beta)=\mathbb{P}\{y_i=1|x_i=x\}$$`
+
+---
+class: animated, fadeIn
+## Модель бинарного выбора: **модели линейного индекса**
+
+`$$y_i\in\{0,\;1\},\;x_i=(1\;\;x_{i1}\;\;...\;\;x_{ik})'$$`
+
+`$$G(x;\beta)=\mathbb{P}\{y_i=1|x_i=x\}$$`
+`$$\mathbb{P}\{y_i=1|x_i=x\}=G(\color{blue}{x'\beta})=G(\color{blue}{\beta_o+\beta_1x_1+...\beta_kx_k})$$`
+
+--
+
+Варианты:
+
+ - модель линейной вероятности: `\(G(\color{blue}{z})=\max(0;\;\min(\color{blue}{z};\;1))\)`
+
+--
+
+ - бинарный пробит: `\(G(\color{blue}{z})=\Phi_{0,1}(\color{blue}{z})\)`
+ 
+ - бинарный логит: `\(G(\color{blue}{z})=\frac{\exp(\color{blue}{z})}{1-\exp(\color{blue}{z})}\)`
+
+---
+class: section, animated, fadeIn
+## Модель бинарного выбора:&lt;/br&gt;интересные свойства
+
+---
+class: hands, middle, animated, zoomIn
+# .gb[?] 
+
+## Достаточно ли модели веротяности `\(y_i=1\)`,
+## чтобы говорить о модели
+## *всего условного распределения?*
+
+---
+class: animated, fadeIn
+## Модели бинарного выбора: **интересные свойства**
+
+- `\(y_i|x_i\)` - всегда **распределение Бернулли**
+
+|*y*|0|1|
+|:-:|:-:|:-:|
+|*P*|*1-G(z)*|*G(z)*|
+
+---
+class: hands, middle, animated, zoomIn
+# .gb[?] 
+
+## Если мы моделируем все распределение,
+## что можно о нем сказать?
+
+---
+class: animated, fadeIn
+## Модели бинарного выбора: **интересные свойства**
+
+- `\(y_i|x_i\)` - всегда **распределение Бернулли**
+
+|*y*|0|1|
+|:-:|:-:|:-:|
+|*P*|*1-G(z)*|*G(z)*|
+
+- условные моменты `\(y_i\)`:
+
+`$$\mathbb{E}[y_i|x_i]=...=G(x_i;\beta)$$`
+
+`$$\text{Var}[y_i|x_i]=...=G(x_i;\beta)\cdot\big(1-G(x_i;\beta)\big)$$`
+
+---
+class: hands, middle, animated, zoomIn
+# .gb[?] 
+
+## Если известны условные моменты,
+## разве мы не можем записать модель,
+## как **регрессию в среднем?**
+
+---
+class: animated, fadeIn
+## Модели бинарного выбора: **интересные свойства**
+
+- `\(y_i|x_i\)` - всегда **распределение Бернулли**
+
+|*y*|0|1|
+|:-:|:-:|:-:|
+|*P*|*1-G(z)*|*G(z)*|
+
+- условные моменты `\(y_i\)`:
+
+`$$\mathbb{E}[y_i|x_i]=...=G(x_i;\beta)$$`
+
+`$$\text{Var}[y_i|x_i]=...=G(x_i;\beta)\cdot\big(1-G(x_i;\beta)\big)$$`
+
+- представление в виде регрессии в среднем:
+
+`$$y_i\;=\;G(x_i;\beta)\;+\;u_i,\;\mathbb{E}[u_i|x_i]=0.$$`
+
+---
+class: section, animated, fadeIn
+# Оценивание моделей&lt;/br&gt;бинарного выбора
+
+---
+class: animated, fadeIn
+## Нелинейный МНК
+
+`$$y_i\;=\;G(x_i'\beta)\;+\;u_i,\;\mathbb{E}[u_i|x_i]=0$$`
+`$$\text{Var}[u_i|x_i]=G(x_i'\beta)\cdot\big(1-G(x_i'\beta)\big)$$`
+
+--
+
+- из-за возможности представления в виде регресии в среднем, применим **нелинейный метод наименьших квадратов**
+
+--
+
+- оценки будут состоятельными
+
+--
+
+- неплохая оценка матрицы ковариаций оценок параметров .right[.rmk[(но все равно так себе)]]
+
+--
+
+- оценки будут не такими уж точными, редко используется
+
+---
+class: animated, fadeIn
+## Метод минимальной перекретсной энтропии
+
+|*y*|0|1|
+|:-:|:-:|:-:|
+|*P*|*1-G(z)*|*G(z)*|
+
+- **"перекрестная энтропия"** - это одна из мер различия двух *распределений*
+
+- мы хотим сравнить **фактическое распределение** и "модельное" (прогнозное) распределение величины `\(y_i|x_i\)`
+
+--
+
+`$$H(D_o,\hat D)=-\mathbb{E}_{D_o}\log f_{\hat D}$$`
+
+--
+
+.bb[?] Почему именно такая мера?
+
+---
+class: animated, fadeIn
+## Перекрестная энтропия
+
+`$$H(D_o,\hat D)=-\mathbb{E}_{D_o}\log f_{\hat D}$$`
+
+.bb[?] Почему именно такая мера?
+
+.rb[!] Задача минимизации популяционной перекрестной энтропии имеет единственное решение - истинное распределение. Мы применяем метод аналогии и получаем сосятотельную оценку всего распределения.
+
+--
+
+.rb[!] Оценки будут асимптотически эффективными
+
+---
+class: animated, fadeIn
+## Метод минимальной перекретсной энтропии
+
+|*y*|0|1|
+|:-:|:-:|:-:|
+|*P*|*1-G(z)*|*G(z)*|
+
+- **"относительная энтропия"** - это одна из мер различия двух *распределений*
+
+- мы хотим сравнить **фактическое распределение** и "модельное" (прогнозное) распределение величины `\(y_i|x_i\)`
+
+
+`$$H(D_o,\hat D)=-\mathbb{E}_{D_o}\log f_{\hat D} = ...$$`
+`$$...\;=\;\begin{cases}-\log G(x_i'\beta),\;\text{если }y_i=1,\\-\log(1-G(x_i'\beta)),\;\text{если }y_i=0.\end{cases}$$`
+
+---
+class: animated, fadeIn
+## Метод минимальной относительной энтропии
+
+`$$\hat\beta=\arg\min_{b}\:-\sum_{i=1}^n\big[y_i\cdot\log G(x_i'b)+(1-y_i)\cdot\log\big(1-G(x_i'b)\big)\big]$$`
+
+--
+
+.gb[!] Также известен, как **метод максимального правдоподобия**
+
+--
+
+.gb[!] Легко обобщается на случай задач множественного выбора
+
+--
+
+.gb[!] Достигнутая энтропия - естественная метрика качества модели .right[.rmk[особенно в прогнозном контексте]]
+
+.gb[!] На основе перекретсной энтропии можно сравнивать даже разные модели бинарного выбора (для одного набора данных)
+
+--
+
+.rb[!] Рассчет `\(\hat V_{\hat\beta}\)` требует определенного навыка
+
+---
+class: animated, fadeIn
+## 
+
+---
+class: animated, fadeIn
+##
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false,
+"highlightLines": true,
+"ratio": "8:5"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
